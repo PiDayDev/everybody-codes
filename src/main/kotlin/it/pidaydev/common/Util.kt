@@ -4,7 +4,7 @@ import java.io.File
 
 /** Reads lines from the given input txt file. */
 private fun readInput(year: Int, quest: Int, part: Int) = File(
-    "src/main/resources/inputs",
+    "src/main/resources/inputs/${year}",
     "everybody_codes_e${year}_q${quest.toString().padStart(2, '0')}_p${part}.txt"
 ).readLines()
 
@@ -46,7 +46,7 @@ data class Quester<T>(val quest: Quest, val parse: (List<String>) -> T) {
 
 private fun readSolutions(year: Int, quest: Int) = try {
     File(
-        "src/main/resources/solutions",
+        "src/main/resources/solutions/${year}",
         "e${year}_q${quest.toString().padStart(2, '0')}.txt"
     )
         .readLines()
