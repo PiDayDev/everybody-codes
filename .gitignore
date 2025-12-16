@@ -46,3 +46,4 @@ bin/
 
 ### custom ###
 /src/main/resources/inputs/
+/src/main/resources/solutions/

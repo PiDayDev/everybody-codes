@@ -1,31 +1,30 @@
 package it.pidaydev.y24
 
-import it.pidaydev.common.readInput
+import it.pidaydev.common.quest
 
-private const val QUEST = 2
+private data class RuneExam(val runes: List<String>, val inscriptions: List<String>)
+
+private val quester = YEAR quest 2 withParser {
+    RuneExam(
+        runes = it.first().substringAfter(":").split(","),
+        inscriptions = it.drop(2)
+    )
+}
 
 fun main() {
 
     fun part1(): Int {
-        val input = readInput(YEAR, QUEST, 1)
-
-        val runes = input.first().substringAfter(":").split(",")
-        val inscription = input.last()
-
+        val (runes, inscriptions) = quester.read(1)
+        val inscription = inscriptions.first()
         val countByRune = runes.map { rune ->
             inscription.windowed(rune.length).count { it == rune }
         }
-
         return countByRune.sum()
     }
 
     fun part2(): Int {
-        val input = readInput(YEAR, QUEST, 2)
-
-        val runes = input.first().substringAfter(":").split(",")
+        val (runes, inscriptions) = quester.read(2)
         val doubleSidedRunes = (runes + runes.map { it.reversed() }).distinct()
-
-        val inscriptions = input.drop(2)
 
         val symbols = inscriptions.sumOf { inscription ->
             val ranges = mutableListOf<IntRange>()
@@ -43,12 +42,8 @@ fun main() {
     }
 
     fun part3(): Int {
-        val input = readInput(YEAR, QUEST, 3)
-
-        val runes = input.first().substringAfter(":").split(",")
+        val (runes, inscriptions) = quester.read(3)
         val doubleSidedRunes = (runes + runes.map { it.reversed() }).distinct()
-
-        val inscriptions = input.drop(2)
         val width = inscriptions.first().length
         val height = inscriptions.size
         val matchedSymbols = List(height) { BooleanArray(width) { false } }
@@ -77,14 +72,8 @@ fun main() {
             }
         }
 
-        matchedSymbols.forEach { row ->
-            println(row.joinToString("") { if (it) "#" else "." })
-        }
-
         return matchedSymbols.sumOf { row -> row.count { it } }
     }
 
-    println("Part 1: ${part1()}")
-    println("Part 2: ${part2()}")
-    println("Part 3: ${part3()}")
+    quester.verifyAndPrint(::part1, ::part2, ::part3)
 }

@@ -1,8 +1,8 @@
 package it.pidaydev.y24
 
-import it.pidaydev.common.readInput
+import it.pidaydev.common.quest
 
-private const val QUEST = 1
+private val quester = YEAR quest 1 withParser { it.joinToString("") }
 
 fun main() {
 
@@ -15,7 +15,7 @@ fun main() {
     }
 
     fun solveForGroupsOfSize(size: Int): Int {
-        val monsterGroups = readInput(YEAR, QUEST, size).joinToString("").chunked(size)
+        val monsterGroups = quester.read(size).chunked(size)
         return monsterGroups.sumOf { group ->
             val potions = group.sumOf { potions(it) }
             val monsterCount = group.count { it != 'x' }
@@ -24,8 +24,9 @@ fun main() {
         }
     }
 
-    (1..3).forEach { part ->
-        val solution = solveForGroupsOfSize(part)
-        println("Part $part: $solution")
-    }
+    quester.verifyAndPrint(
+        part1 = { solveForGroupsOfSize(1) },
+        part2 = { solveForGroupsOfSize(2) },
+        part3 = { solveForGroupsOfSize(3) }
+    )
 }
