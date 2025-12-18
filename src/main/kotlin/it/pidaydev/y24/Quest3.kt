@@ -68,5 +68,5 @@ fun main() {
         return incrementToMax(paddedInput, Adjacency.OMNIDIRECTIONAL)
     }
 
-    quester.verifyAndPrint(::part1, ::part2, ::part3)
+    quester.printAndVerify(::part1, ::part2, ::part3)
 }

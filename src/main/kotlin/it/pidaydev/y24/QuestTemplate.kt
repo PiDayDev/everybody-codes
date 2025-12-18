@@ -12,7 +12,7 @@ fun main() {
     fun part2() = quester.read(2)
     fun part3() = quester.read(3)
 
-    quester.verifyAndPrint(::part1
+    quester.printAndVerify(::part1
 //        , ::part2
 //        , ::part3
     )

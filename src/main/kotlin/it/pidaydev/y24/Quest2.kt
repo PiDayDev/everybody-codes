@@ -75,5 +75,5 @@ fun main() {
         return matchedSymbols.sumOf { row -> row.count { it } }
     }
 
-    quester.verifyAndPrint(::part1, ::part2, ::part3)
+    quester.printAndVerify(::part1, ::part2, ::part3)
 }

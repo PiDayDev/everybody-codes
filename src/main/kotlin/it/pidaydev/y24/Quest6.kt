@@ -59,5 +59,5 @@ fun main() {
     fun part2() = uniquePath(2) { it.take(1) }
     fun part3() = uniquePath(3) { it.take(1) }
 
-    quester.verifyAndPrint(::part1, ::part2, ::part3)
+    quester.printAndVerify(::part1, ::part2, ::part3)
 }

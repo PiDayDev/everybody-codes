@@ -24,7 +24,7 @@ fun main() {
         }
     }
 
-    quester.verifyAndPrint(
+    quester.printAndVerify(
         part1 = { solveForGroupsOfSize(1) },
         part2 = { solveForGroupsOfSize(2) },
         part3 = { solveForGroupsOfSize(3) }

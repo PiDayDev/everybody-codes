@@ -26,7 +26,7 @@ fun main() {
         return sparkBalls.sumOf { minBugs(goal = it, enforceMaxDiff = true) }
     }
 
-    quester.verifyAndPrint({
+    quester.printAndVerify({
         optimize(
             part = 1,
             stamps = listOf(1, 3, 5, 10),

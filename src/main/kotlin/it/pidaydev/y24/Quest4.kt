@@ -19,5 +19,5 @@ fun main() {
         sumOf { abs(it - median) }
     }
 
-    quester.verifyAndPrint(::part1, ::part2, ::part3)
+    quester.printAndVerify(::part1, ::part2, ::part3)
 }

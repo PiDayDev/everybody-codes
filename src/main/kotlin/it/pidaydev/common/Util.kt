@@ -18,7 +18,7 @@ data class Quest(val year: Int, val number: Int) {
 data class Quester<T>(val quest: Quest, val parse: (List<String>) -> T) {
     fun read(part: Int) = parse(readInput(quest.year, quest.number, part))
 
-    fun verifyAndPrint(part1: () -> Any, part2: () -> Any = {}, part3: () -> Any = {}) {
+    fun printAndVerify(part1: () -> Any, part2: () -> Any = {}, part3: () -> Any = {}) {
         val expected = readSolutions(quest.year, quest.number)
         val v1 = part1()
         if (v1 != Unit) {
