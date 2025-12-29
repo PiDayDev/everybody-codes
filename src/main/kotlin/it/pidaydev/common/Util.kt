@@ -58,5 +58,8 @@ private fun readSolutions(year: Int, quest: Int) = try {
 data class Position(val x: Int, val y: Int) {
     operator fun plus(p: Position) = Position(x + p.x, y + p.y)
     operator fun times(k: Int) = Position(k * x, k * y)
+
+    fun around4() = listOf(copy(x = x + 1), copy(x = x - 1), copy(y = y + 1), copy(y = y - 1))
+
     override fun toString() = "($x,$y)"
 }
