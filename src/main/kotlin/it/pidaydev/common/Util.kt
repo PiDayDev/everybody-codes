@@ -1,6 +1,7 @@
 package it.pidaydev.common
 
 import java.io.File
+import kotlin.math.abs
 
 /** Reads lines from the given input txt file. */
 private fun readInput(year: Int, quest: Int, part: Int) = File(
@@ -60,6 +61,8 @@ data class Position(val x: Int, val y: Int) {
     operator fun times(k: Int) = Position(k * x, k * y)
 
     fun around4() = listOf(copy(x = x + 1), copy(x = x - 1), copy(y = y + 1), copy(y = y - 1))
+
+    fun manhattan(other: Position) = abs(x - other.x) + abs(y - other.y)
 
     override fun toString() = "($x,$y)"
 }
