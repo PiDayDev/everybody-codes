@@ -58,6 +58,7 @@ private fun readSolutions(year: Int, quest: Int) = try {
 
 data class Position(val x: Int, val y: Int) {
     operator fun plus(p: Position) = Position(x + p.x, y + p.y)
+    operator fun plus(d: Direction) = this + d.vector
     operator fun times(k: Int) = Position(k * x, k * y)
 
     fun around4() = listOf(copy(x = x + 1), copy(x = x - 1), copy(y = y + 1), copy(y = y - 1))
@@ -65,4 +66,14 @@ data class Position(val x: Int, val y: Int) {
     fun manhattan(other: Position) = abs(x - other.x) + abs(y - other.y)
 
     override fun toString() = "($x,$y)"
+}
+
+enum class Direction(val vector: Position) {
+    UP(Position(0, -1)),
+    RIGHT(Position(+1, 0)),
+    DOWN(Position(0, +1)),
+    LEFT(Position(-1, 0));
+
+    fun turnRight() = entries[(ordinal + 1) % entries.size]
+    fun turnLeft() = entries[(ordinal + entries.size - 1) % entries.size]
 }
