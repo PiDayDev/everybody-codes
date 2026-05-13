@@ -11,12 +11,14 @@ Everybody Codes is a coding challenge platform featuring algorithmic puzzles and
 ```
 src/
 ├── main/
-│   ├── kotlin/
+│   ├── kotlin/it/pidaydev/
 │   │   ├── common/      # Shared utilities and helper functions
-│   │   └── y24/         # Solutions for 2024 quests
-│   └── resources/
+│   │   ├── story[NN]/   # Solutions for story #[NN] quests
+│   │   └── y[YY]/       # Solutions for year 20YY quests
+│   └── resources/       # Uncommitted - you should get your own input files!
 │       └── inputs/      # Puzzle input files
-└── test/
+│       └── solutions/   # Personal solutions, saved for non-regression testing
+└── test/                # Not really using this 😅, but it's here in case I TDD some solutions
     ├── kotlin/          # Test files
     └── resources/       # Test resources
 ```
