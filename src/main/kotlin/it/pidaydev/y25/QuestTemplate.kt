@@ -1,4 +1,4 @@
-package it.pidaydev.y24
+package it.pidaydev.y25
 
 import it.pidaydev.common.quest
 
