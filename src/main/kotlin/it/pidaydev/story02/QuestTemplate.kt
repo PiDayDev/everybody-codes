@@ -1,4 +1,4 @@
-package it.pidaydev.story04
+package it.pidaydev.story02
 
 import it.pidaydev.common.quest
 
