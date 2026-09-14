@@ -1,8 +1,8 @@
-package it.pidaydev.story02
+package it.pidaydev.story03
 
 import it.pidaydev.common.quest
 
-private val quester = STORY quest 9999 withParser {
+private val quester = STORY quest 3 withParser {
     // TODO
 }
 
